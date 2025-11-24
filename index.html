@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zack | Cybersecurity & Cloud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg-1: #050816;
+      --bg-2: #020617;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --radius-xl: 1.5rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(2, 6, 23, 0.98)
+      );
+      border-radius: 2rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow);
+      padding: 2.25rem 2.5rem 2.5rem;
+      backdrop-filter: blur(18px);
+    }
+
+    header {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.5);
+      padding: 3px;
+      background: radial-gradient(circle, #1e293b, #020617);
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+      display: block;
+    }
+
+    .title-block h1 {
+      font-size: 1.9rem;
+      font-weight: 650;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 0.15rem 0.7rem;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .title-block p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      max-width: 34rem;
+    }
+
+    section + section {
+      margin-top: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #cbd5f5;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 830px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 540px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: radial-gradient(
+          circle at top left,
+          rgba(56, 189, 248, 0.08),
+          transparent 55%
+        ),
+        var(--card);
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .card span.tag {
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.09em;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .chip {
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .btn-link {
+      font-size: 0.8rem;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.3rem 0.65rem;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: var(--accent);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .contact-chip {
+      font-size: 0.82rem;
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .contact-chip a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <main class="main">
+    <header>
+      <div class="avatar">
+        <img src="https://avatars.githubusercontent.com/padrinozack" alt="Profile Picture" />
+      </div>
+
+      <div class="title-block">
+        <h1>
+          Hey, I’m Zack 👋
+          <span class="pill">Cybersecurity in progress</span>
+        </h1>
+        <p>
+          Cloud & SIEM nerd, threat detection enjoyer, and someone who loves building clean, useful things on the internet.
+        </p>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="about-text">
+        Cybersecurity analyst in the making. I enjoy digging through logs, breaking things safely, and locking them down again.
+      </p>
+      <div class="badges">
+        <span class="badge">Cloud Security</span>
+        <span class="badge">SIEM / Sentinel</span>
+        <span class="badge">Threat Hunting</span>
+        <span class="badge">Python Tools</span>
+        <span class="badge">Cyber Labs</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- PROJECT GRID -->
+      <div class="grid">
+
+        <!-- Azure Sentinel Mini-SIEM -->
+        <div class="card">
+          <span class="tag">Featured</span>
+          <h3>Azure Sentinel Mini-SIEM</h3>
+          <p>
+            Built a mini SIEM lab to collect Windows logs, create KQL queries, detect suspicious logons, and trigger custom alerts.
+          </p>
+          <div class="chips">
+            <span class="chip">Azure</span>
+            <span class="chip">Sentinel</span>
+            <span class="chip">KQL</span>
+          </div>
+          <a class="btn-link" href="#" target="_blank">Repo coming soon ⤴</a>
+        </div>
+
+        <!-- Nmap Vulnerability Tracker -->
+        <div class="card">
+          <span class="tag">Tooling</span>
+          <h3>Nmap Vulnerability Tracker</h3>
+          <p>
+            Scripted Nmap scans to discover open ports and misconfigurations. Results exported into a clean report format.
+          </p>
+          <div class="chips">
+            <span class="chip">Nmap</span>
+            <
